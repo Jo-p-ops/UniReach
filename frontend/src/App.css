@@ -1,0 +1,2889 @@
+
+/* =========================================================
+   UNIREACH - GLOBAL STYLES
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fb;
+  color: #222;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* =========================================================
+   MAIN HOME PAGE
+========================================================= */
+
+nav {
+  width: 100%;
+  padding: 18px 60px;
+  background: #111827;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav h2 {
+  margin: 0;
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 25px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+.signup-button {
+  background: white;
+  color: #111827 !important;
+  padding: 10px 18px;
+  border-radius: 8px;
+}
+
+.signup-button:hover {
+  opacity: 0.9;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  min-height: 520px;
+  padding: 100px 30px;
+  background: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero h1 {
+  max-width: 800px;
+  margin: 0 0 20px;
+  color: #111827;
+  font-size: 52px;
+  line-height: 1.1;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: 0 auto;
+  color: #6b7280;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.hero-primary-button,
+.hero-secondary-button {
+  padding: 13px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.hero-primary-button {
+  background: #111827;
+  color: white;
+}
+
+.hero-primary-button:hover {
+  background: #374151;
+}
+
+.hero-secondary-button {
+  border: 1px solid #d1d5db;
+  background: white;
+  color: #374151;
+}
+
+.hero-secondary-button:hover {
+  background: #f3f4f6;
+}
+
+/* =========================================================
+   HOW IT WORKS
+========================================================= */
+
+.how-it-works {
+  padding: 70px 30px;
+  background: #f5f7fb;
+  text-align: center;
+}
+
+.how-it-works h2,
+.categories h2 {
+  margin: 0 0 12px;
+  color: #111827;
+  font-size: 32px;
+}
+
+.steps {
+  max-width: 1000px;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.step {
+  background: white;
+  padding: 30px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+}
+
+.step-number {
+  width: 45px;
+  height: 45px;
+  margin: 0 auto 15px;
+  background: #111827;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.step h3 {
+  margin: 0 0 10px;
+  color: #111827;
+}
+
+.step p {
+  margin: 0;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
+.categories {
+  padding: 80px 30px;
+  background: white;
+  text-align: center;
+}
+
+.categories-intro {
+  margin: 0 auto 35px;
+  color: #6b7280;
+}
+
+.category-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.category-card {
+  padding: 25px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  text-align: left;
+  background: #fff;
+}
+
+.category-card:hover {
+  transform: translateY(-2px);
+}
+
+.category-card h3 {
+  margin: 0 0 10px;
+  color: #111827;
+}
+
+.category-card p {
+  margin: 0;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   LOGIN / SIGNUP
+========================================================= */
+
+.login-page {
+  min-height: 100vh;
+  padding: 30px 20px;
+  background: #f5f7fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 430px;
+  padding: 35px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.back-home {
+  color: #374151;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.back-home:hover {
+  text-decoration: underline;
+}
+
+.login-card h1 {
+  margin: 25px 0 8px;
+  color: #111827;
+  font-size: 30px;
+}
+
+.login-card > p {
+  color: #6b7280;
+  margin-bottom: 25px;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-card label {
+  margin-bottom: 7px;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.login-card input {
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+}
+
+.login-card input:focus {
+  border-color: #111827;
+}
+
+.login-card button {
+  margin-top: 5px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #111827;
+  color: white;
+  font-weight: 700;
+}
+
+.login-card button:hover {
+  background: #374151;
+}
+
+.forgot-password {
+  margin: -5px 0 18px;
+  text-align: right;
+}
+
+.forgot-password a {
+  color: #374151;
+  font-size: 13px;
+}
+
+.signup-text {
+  text-align: center;
+  margin-top: 20px;
+  color: #6b7280;
+}
+
+.signup-text a {
+  color: #111827;
+  font-weight: 700;
+}
+
+/* =========================================================
+   DASHBOARD / SIDEBAR
+========================================================= */
+
+.dashboard {
+  min-height: 100vh;
+  display: flex;
+  background: #f5f7fb;
+}
+
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  padding: 25px 15px;
+  background: #111827;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-logo {
+  padding: 0 12px 30px;
+}
+
+.sidebar-logo h2 {
+  margin: 0;
+  color: white;
+  font-size: 24px;
+}
+
+.sidebar-logo span {
+  display: block;
+  margin-top: 5px;
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sidebar-nav a,
+.logout {
+  padding: 12px;
+  color: #d1d5db;
+  text-decoration: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+  background: #1f2937;
+  color: white;
+}
+
+.logout {
+  margin-top: auto;
+}
+
+.logout:hover {
+  background: #1f2937;
+  color: white;
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 40px;
+  min-width: 0;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.dashboard-label {
+  margin: 0 0 8px;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.dashboard-header h1 {
+  margin: 0 0 8px;
+  color: #111827;
+  font-size: 32px;
+}
+
+.dashboard-header p {
+  margin: 0;
+  color: #6b7280;
+}
+
+.dashboard-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+.dashboard-profile strong {
+  display: block;
+  color: #111827;
+  font-size: 14px;
+}
+
+.dashboard-profile span {
+  display: block;
+  margin-top: 3px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.profile-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #111827;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* =========================================================
+   DASHBOARD SEARCH
+========================================================= */
+
+.dashboard-search {
+  padding: 25px;
+  margin-bottom: 25px;
+  background: #111827;
+  color: white;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.dashboard-search h2 {
+  margin: 0 0 8px;
+  font-size: 21px;
+}
+
+.dashboard-search p {
+  margin: 0;
+  color: #d1d5db;
+  font-size: 14px;
+}
+
+.dashboard-search-button {
+  padding: 11px 17px;
+  background: white;
+  color: #111827;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 35px;
+}
+
+.stat-card {
+  padding: 20px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.stat-icon {
+  width: 45px;
+  height: 45px;
+  background: #f3f4f6;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-card h3 {
+  margin: 0 0 4px;
+  color: #111827;
+  font-size: 24px;
+}
+
+.stat-card p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.section-heading {
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.section-heading h2 {
+  margin: 0 0 5px;
+  color: #111827;
+  font-size: 21px;
+}
+
+.section-heading p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.section-heading a {
+  color: #111827;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.opportunity-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.opportunity-card,
+.feed-card {
+  padding: 22px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+}
+
+.opportunity-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.opportunity-category {
+  display: inline-block;
+  padding: 5px 9px;
+  background: #f3f4f6;
+  color: #374151;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.bookmark-button {
+  border: none;
+  background: none;
+  font-size: 23px;
+  color: #6b7280;
+}
+
+.opportunity-card h3 {
+  margin: 13px 0 8px;
+  color: #111827;
+}
+
+.opportunity-card p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.dashboard-opportunity-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 17px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.opportunity-card-bottom {
+  margin-top: 18px;
+  padding-top: 15px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.opportunity-card-bottom small {
+  color: #9ca3af;
+}
+
+.small-view-button {
+  padding: 8px 13px;
+  background: #111827;
+  color: white;
+  border-radius: 7px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.deadline-section {
+  margin-top: 35px;
+}
+
+.deadline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.deadline-item {
+  padding: 18px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.deadline-date {
+  width: 55px;
+  min-width: 55px;
+  padding: 8px;
+  background: #f3f4f6;
+  border-radius: 9px;
+  text-align: center;
+}
+
+.deadline-date strong {
+  display: block;
+  color: #111827;
+  font-size: 20px;
+}
+
+.deadline-date span {
+  color: #6b7280;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.deadline-item h3 {
+  margin: 0 0 4px;
+  color: #111827;
+  font-size: 15px;
+}
+
+.deadline-item p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.deadline-status {
+  margin-left: auto;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+/* =========================================================
+   OPPORTUNITIES
+========================================================= */
+
+.opportunities-page {
+  min-height: 100vh;
+  padding: 40px;
+  background: #f5f7fb;
+}
+
+.opportunities-header {
+  max-width: 1100px;
+  margin: 0 auto 30px;
+}
+
+.opportunities-header h1 {
+  margin: 15px 0 8px;
+  color: #111827;
+  font-size: 36px;
+}
+
+.opportunities-header p {
+  margin: 0;
+  color: #6b7280;
+}
+
+.opportunity-search {
+  max-width: 1100px;
+  margin: 0 auto 25px;
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 12px;
+}
+
+.opportunity-search input,
+.opportunity-search select {
+  padding: 13px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: white;
+  color: #111827;
+  outline: none;
+}
+
+.opportunity-search input::placeholder {
+  color: #9ca3af;
+}
+
+
+.opportunity-search input:focus,
+.opportunity-search select:focus {
+  border-color: #111827;
+}
+
+.opportunity-feed {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.feed-card h2 {
+  margin: 12px 0 6px;
+  color: #111827;
+  font-size: 21px;
+}
+
+.feed-card h4 {
+  margin: 0 0 12px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.feed-card p {
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.opportunity-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 18px;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.feed-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.feed-actions button,
+.view-button {
+  padding: 10px 15px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.feed-actions button {
+  border: 1px solid #d1d5db;
+  background: white;
+  color: #374151;
+}
+
+.feed-actions button:hover {
+  background: #f3f4f6;
+}
+
+.feed-actions .saved-button {
+  background: #111827;
+  color: white;
+  border-color: #111827;
+}
+
+.view-button {
+  display: inline-block;
+  background: #111827;
+  color: white;
+  text-decoration: none;
+}
+
+.view-button:hover {
+  background: #374151;
+}
+
+.apply-button {
+  background: #111827;
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  padding: 50px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.no-results h3 {
+  margin: 0 0 8px;
+  color: #111827;
+}
+
+.no-results p {
+  color: #6b7280;
+}
+
+/* =========================================================
+   OPPORTUNITY DETAILS
+========================================================= */
+
+.opportunity-details {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.details-section {
+  margin-top: 30px;
+}
+
+.details-section h3 {
+  color: #111827;
+}
+
+.details-section li {
+  margin-bottom: 8px;
+  color: #6b7280;
+}
+
+/* =========================================================
+   CHANNELS
+========================================================= */
+
+.channels-page {
+  min-height: 100vh;
+  padding: 40px;
+  background: #f5f7fb;
+}
+
+.channels-header {
+  max-width: 1100px;
+  margin: 0 auto 30px;
+}
+
+.channels-header h1 {
+  margin: 15px 0 8px;
+  color: #111827;
+  font-size: 36px;
+}
+
+.channels-header p {
+  color: #6b7280;
+}
+
+.channels-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.channel-card {
+  padding: 25px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+}
+
+.channel-icon {
+  width: 52px;
+  height: 52px;
+  background: #f3f4f6;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+}
+
+.channel-card h2 {
+  color: #111827;
+  font-size: 21px;
+}
+
+.channel-card p {
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.channel-footer {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.channel-footer span {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.channel-footer button {
+  padding: 9px 15px;
+  border: none;
+  background: #111827;
+  color: white;
+  border-radius: 7px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   APPLICATIONS
+========================================================= */
+
+.applications-page {
+  min-height: 100vh;
+  padding: 40px;
+  background: #f5f7fb;
+}
+
+.applications-header {
+  max-width: 1100px;
+  margin: 0 auto 30px;
+}
+
+.applications-header h1 {
+  margin: 15px 0 8px;
+  color: #111827;
+}
+
+.applications-header p {
+  color: #6b7280;
+}
+
+.applications-summary {
+  max-width: 1100px;
+  margin: 0 auto 25px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.applications-summary div {
+  padding: 22px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.applications-summary strong {
+  color: #111827;
+  font-size: 27px;
+}
+
+.applications-summary span {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.applications-list {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.application-card {
+  padding: 22px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.application-main h2 {
+  margin: 10px 0 5px;
+  color: #111827;
+  font-size: 19px;
+}
+
+.application-main h4 {
+  margin: 0 0 8px;
+  color: #6b7280;
+}
+
+.application-main p {
+  margin: 0;
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+.application-side {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.application-status {
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.application-status.applied {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.application-status.under-review {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.application-status.shortlisted {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* =========================================================
+   REMINDERS
+========================================================= */
+
+.reminders-page,
+.notifications-page,
+.profile-page {
+  min-height: 100vh;
+  padding: 40px;
+  background: #f5f7fb;
+}
+
+.reminders-header,
+.notifications-header,
+.profile-header {
+  max-width: 1100px;
+  margin: 0 auto 30px;
+}
+
+.reminders-header h1,
+.notifications-header h1,
+.profile-header h1 {
+  margin: 15px 0 8px;
+  color: #111827;
+}
+
+.reminders-header p,
+.notifications-header p,
+.profile-header p {
+  color: #6b7280;
+}
+
+.reminders-summary {
+  max-width: 1100px;
+  margin: 0 auto 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.reminders-summary div {
+  padding: 22px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.reminders-summary strong {
+  color: #111827;
+  font-size: 28px;
+}
+
+.reminders-summary span {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.reminders-list {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.reminder-card {
+  padding: 22px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  display: grid;
+  grid-template-columns: 75px 1fr auto;
+  align-items: center;
+  gap: 20px;
+}
+
+.reminder-date {
+  padding: 10px;
+  background: #f3f4f6;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.reminder-date span,
+.reminder-date small {
+  display: block;
+  color: #6b7280;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.reminder-date strong {
+  display: block;
+  margin: 3px 0;
+  color: #111827;
+  font-size: 25px;
+}
+
+.reminder-info h2 {
+  margin: 8px 0 5px;
+  color: #111827;
+  font-size: 18px;
+}
+
+.reminder-info h4 {
+  margin: 0 0 7px;
+  color: #6b7280;
+}
+
+.reminder-info p {
+  margin: 0;
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+.reminder-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.days-left {
+  color: #6b7280;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.reminder-actions .view-button {
+  padding: 10px 18px;
+}
+
+/* =========================================================
+   NOTIFICATIONS
+========================================================= */
+
+.notifications-list {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.notification-card {
+  padding: 20px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.notification-icon {
+  width: 50px;
+  height: 50px;
+  background: #f3f4f6;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+}
+
+.notification-content {
+  flex: 1;
+}
+
+.notification-type {
+  color: #6b7280;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.notification-content h2 {
+  margin: 6px 0;
+  color: #111827;
+  font-size: 16px;
+}
+
+.notification-content p {
+  margin: 0 0 5px;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.notification-content small {
+  color: #9ca3af;
+}
+
+.notification-action {
+  padding: 9px 14px;
+  border: 1px solid #d1d5db;
+  background: white;
+  border-radius: 7px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   STUDENT PROFILE
+========================================================= */
+
+.profile-card {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 35px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+}
+
+.profile-top {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.large-profile-avatar {
+  width: 75px;
+  height: 75px;
+  border-radius: 16px;
+  background: #111827;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.profile-top h2 {
+  margin: 0 0 5px;
+  color: #111827;
+}
+
+.profile-top p {
+  margin: 0;
+  color: #6b7280;
+}
+
+.profile-section {
+  padding: 28px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.profile-section h3 {
+  margin: 0 0 20px;
+  color: #111827;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.profile-field label {
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.profile-field input {
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #f9fafb;
+}
+
+.interest-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.interest-tags span {
+  padding: 8px 12px;
+  background: #f3f4f6;
+  border-radius: 20px;
+  color: #374151;
+  font-size: 12px;
+}
+
+.profile-actions {
+  padding-top: 25px;
+  text-align: right;
+}
+
+.profile-actions button {
+  padding: 12px 20px;
+  border: none;
+  background: #111827;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   PROVIDER PAGES
+========================================================= */
+
+.provider-opportunities-page,
+.create-opportunity-page,
+.provider-channels-page,
+.provider-applications-page,
+.provider-profile-page,
+.admin-users-page,
+.admin-providers-page,
+.admin-opportunities-page,
+.admin-channels-page,
+.admin-reports-page {
+  min-height: 100vh;
+  padding: 40px;
+  background: #f5f7fb;
+}
+
+.provider-page-header {
+  max-width: 1100px;
+  margin: 0 auto 30px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: end;
+}
+
+.provider-page-header .back-home {
+  grid-column: 1 / -1;
+}
+
+.provider-page-header h1 {
+  margin: 10px 0 8px;
+  color: #111827;
+  font-size: 36px;
+}
+
+.provider-page-header p {
+  margin: 0;
+  color: #6b7280;
+}
+
+/* Provider Opportunities */
+
+.provider-opportunity-summary,
+.provider-application-summary,
+.admin-user-summary,
+.admin-provider-summary,
+.admin-opportunity-summary,
+.admin-channel-summary,
+.admin-report-summary {
+  max-width: 1100px;
+  margin: 0 auto 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.provider-opportunity-summary div,
+.provider-application-summary div,
+.admin-user-summary div,
+.admin-provider-summary div,
+.admin-opportunity-summary div,
+.admin-channel-summary div,
+.admin-report-summary div {
+  padding: 22px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.provider-opportunity-summary strong,
+.provider-application-summary strong,
+.admin-user-summary strong,
+.admin-provider-summary strong,
+.admin-opportunity-summary strong,
+.admin-channel-summary strong,
+.admin-report-summary strong {
+  color: #111827;
+  font-size: 28px;
+}
+
+.provider-opportunity-summary span,
+.provider-application-summary span,
+.admin-user-summary span,
+.admin-provider-summary span,
+.admin-opportunity-summary span,
+.admin-channel-summary span,
+.admin-report-summary span {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.provider-opportunity-list,
+.provider-applications-list {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.provider-opportunity-card {
+  padding: 25px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.provider-opportunity-main {
+  flex: 1;
+}
+
+.provider-opportunity-top {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.provider-opportunity-card h2 {
+  margin: 12px 0 10px;
+  color: #111827;
+  font-size: 21px;
+}
+
+.provider-opportunity-info,
+.provider-opportunity-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.provider-opportunity-stats {
+  margin-top: 14px;
+}
+
+.provider-status {
+  padding: 6px 11px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.provider-status.active {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.provider-status.closed {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.provider-opportunity-actions {
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.provider-opportunity-actions button,
+.provider-channel-actions button,
+.admin-user-actions button,
+.admin-provider-actions button,
+.admin-opportunity-actions button,
+.admin-channel-actions button,
+.provider-application-side button {
+  padding: 9px 14px;
+  border: 1px solid #d1d5db;
+  background: white;
+  color: #374151;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.provider-opportunity-actions button:hover,
+.provider-channel-actions button:hover,
+.admin-user-actions button:hover,
+.admin-provider-actions button:hover,
+.admin-opportunity-actions button:hover,
+.admin-channel-actions button:hover,
+.provider-application-side button:hover {
+  background: #f3f4f6;
+}
+
+.delete-button {
+  color: #b91c1c !important;
+  border-color: #fecaca !important;
+}
+
+/* Provider Create Opportunity */
+
+.create-opportunity-header {
+  max-width: 900px;
+  margin: 0 auto 30px;
+}
+
+.create-opportunity-header h1 {
+  margin: 15px 0 8px;
+  color: #111827;
+  font-size: 36px;
+}
+
+.create-opportunity-header p {
+  margin: 0;
+  color: #6b7280;
+}
+
+.opportunity-form-card {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 35px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+}
+
+.form-section {
+  padding: 25px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.form-section:first-child {
+  padding-top: 0;
+}
+
+.form-section h2 {
+  margin: 0 0 20px;
+  color: #111827;
+  font-size: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field label {
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: white;
+  outline: none;
+  font-size: 14px;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: #111827;
+}
+
+.form-field textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.form-actions {
+  padding-top: 25px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.form-actions button,
+.cancel-button {
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.form-actions button {
+  border: none;
+  background: #111827;
+  color: white;
+}
+
+.cancel-button {
+  border: 1px solid #d1d5db;
+  color: #374151;
+  background: white;
+}
+
+/* Provider Channels */
+
+.provider-channel-summary {
+  max-width: 1100px;
+  margin: 0 auto 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.provider-channel-summary div {
+  padding: 22px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.provider-channel-summary strong {
+  color: #111827;
+  font-size: 28px;
+}
+
+.provider-channel-summary span {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.create-channel-button,
+.admin-create-channel-button {
+  padding: 12px 20px;
+  border: none;
+  background: #111827;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.provider-channels-grid,
+.admin-channels-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.provider-channel-card,
+.admin-channel-card {
+  padding: 25px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+}
+
+.provider-channel-icon,
+.admin-channel-icon {
+  width: 52px;
+  height: 52px;
+  background: #f3f4f6;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+}
+
+.provider-channel-content h2,
+.admin-channel-card h2 {
+  color: #111827;
+}
+
+.provider-channel-content p,
+.admin-channel-card > p {
+  color: #6b7280;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.provider-channel-stats,
+.admin-channel-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 18px;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.provider-channel-actions,
+.admin-channel-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.admin-channel-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.admin-channel-stats div {
+  padding: 15px;
+  background: #f9fafb;
+  border-radius: 9px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-channel-stats strong {
+  color: #111827;
+}
+
+.admin-channel-stats span {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.admin-channel-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-channel-status {
+  padding: 6px 10px;
+  background: #dcfce7;
+  color: #166534;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* Provider Applications */
+
+.provider-application-card {
+  padding: 22px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.applicant-avatar {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #111827;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.provider-application-main {
+  flex: 1;
+}
+
+.provider-application-main h2 {
+  margin: 0 0 5px;
+  color: #111827;
+  font-size: 19px;
+}
+
+.applicant-email {
+  margin: 0 0 10px;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.application-opportunity {
+  margin: 0 0 6px;
+  color: #374151;
+  font-size: 14px;
+}
+
+.provider-application-main small {
+  color: #9ca3af;
+}
+
+.provider-application-side {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.provider-application-status {
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.provider-application-status.new {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.provider-application-status.under-review {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.provider-application-status.shortlisted {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.provider-application-status.rejected {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* Provider Profile */
+
+.provider-profile-card {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 35px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+}
+
+.provider-profile-top {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.organization-avatar {
+  width: 75px;
+  height: 75px;
+  border-radius: 16px;
+  background: #111827;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.provider-profile-top h2 {
+  margin: 0 0 6px;
+  color: #111827;
+}
+
+.provider-profile-top p {
+  margin: 0 0 10px;
+  color: #6b7280;
+}
+
+.verified-badge {
+  padding: 6px 10px;
+  background: #dcfce7;
+  color: #166534;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.provider-profile-section {
+  padding: 28px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.provider-profile-section h3 {
+  margin: 0 0 20px;
+  color: #111827;
+}
+
+.provider-profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.provider-profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.provider-profile-field label {
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.provider-profile-field input,
+.provider-profile-section textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #f9fafb;
+}
+
+.provider-profile-section textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.provider-profile-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.provider-profile-stats div {
+  padding: 18px;
+  background: #f9fafb;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.provider-profile-stats strong {
+  color: #111827;
+  font-size: 24px;
+}
+
+.provider-profile-stats span {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.provider-profile-actions {
+  padding-top: 25px;
+  text-align: right;
+}
+
+.provider-profile-actions button {
+  padding: 12px 20px;
+  border: none;
+  background: #111827;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   ADMIN TABLE/LIST PAGES
+========================================================= */
+
+.admin-users-card,
+.admin-providers-card,
+.admin-opportunities-card,
+.admin-reports-card {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.admin-users-toolbar,
+.admin-providers-toolbar,
+.admin-opportunities-toolbar,
+.admin-reports-toolbar {
+  padding: 25px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.admin-users-toolbar h2,
+.admin-providers-toolbar h2,
+.admin-opportunities-toolbar h2,
+.admin-reports-toolbar h2 {
+  margin: 0 0 5px;
+  color: #111827;
+  font-size: 20px;
+}
+
+.admin-users-toolbar p,
+.admin-providers-toolbar p,
+.admin-opportunities-toolbar p,
+.admin-reports-toolbar p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.admin-user-filters,
+.admin-provider-filters,
+.admin-opportunity-filters {
+  display: flex;
+  gap: 10px;
+}
+
+.admin-user-filters input,
+.admin-user-filters select,
+.admin-provider-filters input,
+.admin-provider-filters select,
+.admin-opportunity-filters input,
+.admin-opportunity-filters select,
+.admin-reports-toolbar select {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  background: white;
+  outline: none;
+  font-size: 13px;
+}
+
+.admin-users-list,
+.admin-providers-list,
+.admin-opportunities-list,
+.admin-reports-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Admin Users */
+
+.admin-user-row {
+  padding: 18px 25px;
+  border-bottom: 1px solid #e5e7eb;
+  display: grid;
+  grid-template-columns: auto 1.5fr auto 1fr auto auto;
+  align-items: center;
+  gap: 18px;
+}
+
+.admin-user-avatar,
+.admin-provider-logo {
+  background: #111827;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.admin-user-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.admin-user-info h3,
+.admin-provider-info h3 {
+  margin: 0 0 4px;
+  color: #111827;
+  font-size: 15px;
+}
+
+.admin-user-info p,
+.admin-provider-info p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.admin-user-role,
+.admin-user-status,
+.admin-provider-status {
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.admin-user-role.student {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.admin-user-role.provider {
+  background: #f3e8ff;
+  color: #7e22ce;
+}
+
+.admin-user-status.active,
+.admin-provider-status.verified {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.admin-user-status.pending,
+.admin-provider-status.pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.admin-user-status.suspended,
+.admin-provider-status.suspended {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.admin-user-joined,
+.admin-provider-joined {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.admin-user-joined small,
+.admin-provider-joined small,
+.admin-provider-opportunities small {
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+.admin-user-joined span,
+.admin-provider-joined span {
+  color: #374151;
+  font-size: 12px;
+}
+
+.admin-user-actions,
+.admin-provider-actions {
+  display: flex;
+  gap: 7px;
+}
+
+/* Admin Providers */
+
+.admin-provider-row {
+  padding: 20px 25px;
+  border-bottom: 1px solid #e5e7eb;
+  display: grid;
+  grid-template-columns: auto 1.5fr auto 1fr auto auto;
+  align-items: center;
+  gap: 18px;
+}
+
+.admin-provider-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+}
+
+.admin-provider-info span {
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+.admin-provider-opportunities {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.admin-provider-opportunities strong {
+  color: #111827;
+  font-size: 18px;
+}
+
+.admin-provider-actions .verify-button {
+  background: #111827;
+  color: white;
+}
+
+/* Admin Opportunities */
+
+.admin-opportunity-row {
+  padding: 20px 25px;
+  border-bottom: 1px solid #e5e7eb;
+  display: grid;
+  grid-template-columns: auto 1.5fr 1fr auto auto;
+  align-items: center;
+  gap: 18px;
+}
+
+.admin-opportunity-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-opportunity-info h3 {
+  margin: 8px 0 5px;
+  color: #111827;
+  font-size: 15px;
+}
+
+.admin-opportunity-info p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.admin-opportunity-dates {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-opportunity-dates div {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-opportunity-dates small {
+  color: #9ca3af;
+  font-size: 10px;
+}
+
+.admin-opportunity-dates span {
+  color: #374151;
+  font-size: 12px;
+}
+
+.admin-opportunity-status {
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.admin-opportunity-status.approved {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.admin-opportunity-status.pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.admin-opportunity-status.rejected {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.admin-opportunity-actions {
+  display: flex;
+  gap: 7px;
+}
+
+.admin-opportunity-actions .approve-button {
+  background: #166534;
+  color: white;
+  border-color: #166534;
+}
+
+.admin-opportunity-actions .reject-button {
+  color: #b91c1c;
+  border-color: #fecaca;
+}
+
+/* Admin Reports */
+
+.admin-report-row {
+  padding: 22px 25px;
+  border-bottom: 1px solid #e5e7eb;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 18px;
+}
+
+.admin-report-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #fef3c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-report-top {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.admin-report-type {
+  padding: 5px 9px;
+  background: #f3f4f6;
+  color: #374151;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.admin-report-status {
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.admin-report-status.pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.admin-report-status.under-review {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.admin-report-status.resolved {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.admin-report-main h3 {
+  margin: 0 0 6px;
+  color: #111827;
+  font-size: 16px;
+}
+
+.admin-report-main p {
+  margin: 0 0 5px;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.admin-report-main small {
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+.admin-report-actions {
+  display: flex;
+  gap: 7px;
+}
+
+.admin-report-actions .review-button {
+  background: #111827;
+  color: white;
+  border-color: #111827;
+}
+
+.admin-report-actions .resolve-button {
+  color: #166534;
+  border-color: #bbf7d0;
+}
+
+/* =========================================================
+   ADMIN DASHBOARD
+========================================================= */
+
+.admin-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.admin-overview-card {
+  padding: 22px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.admin-overview-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  background: #f3f4f6;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.admin-overview-card h3 {
+  margin: 0 0 7px;
+  color: #111827;
+  font-size: 17px;
+}
+
+.admin-overview-card p {
+  margin: 0 0 12px;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.admin-overview-card a {
+  color: #111827;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .opportunity-list,
+  .opportunity-feed {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-opportunity-row {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .admin-opportunity-dates {
+    display: none;
+  }
+
+  .admin-provider-row,
+  .admin-user-row {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .admin-provider-opportunities,
+  .admin-provider-joined,
+  .admin-user-joined {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 16px 20px;
+  }
+
+  nav h2 {
+    font-size: 21px;
+  }
+
+  nav a {
+    margin-left: 10px;
+    font-size: 13px;
+  }
+
+  .hero {
+    min-height: 450px;
+    padding: 70px 20px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .steps,
+  .category-grid,
+  .channels-grid,
+  .provider-channels-grid,
+  .admin-channels-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .sidebar-nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .logout {
+    margin-top: 15px;
+  }
+
+  .dashboard-content {
+    padding: 25px 15px;
+  }
+
+  .dashboard-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .dashboard-search {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .application-card,
+  .provider-opportunity-card,
+  .provider-application-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .application-side,
+  .provider-application-side {
+    width: 100%;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .opportunities-page,
+  .channels-page,
+  .applications-page,
+  .reminders-page,
+  .notifications-page,
+  .profile-page,
+  .provider-opportunities-page,
+  .create-opportunity-page,
+  .provider-channels-page,
+  .provider-applications-page,
+  .provider-profile-page,
+  .admin-users-page,
+  .admin-providers-page,
+  .admin-opportunities-page,
+  .admin-channels-page,
+  .admin-reports-page {
+    padding: 25px 15px;
+  }
+
+  .opportunity-search {
+    grid-template-columns: 1fr;
+  }
+
+  .reminder-card {
+    grid-template-columns: 60px 1fr;
+  }
+
+  .reminder-actions {
+    grid-column: 1 / -1;
+  }
+
+  .applications-summary,
+  .reminders-summary,
+  .provider-channel-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .provider-opportunity-summary,
+  .provider-application-summary,
+  .admin-user-summary,
+  .admin-provider-summary,
+  .admin-opportunity-summary,
+  .admin-channel-summary,
+  .admin-report-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .provider-page-header {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .provider-page-header .dashboard-search-button,
+  .create-channel-button,
+  .admin-create-channel-button {
+    width: fit-content;
+  }
+
+  .form-grid,
+  .profile-grid,
+  .provider-profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .provider-profile-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .admin-users-toolbar,
+  .admin-providers-toolbar,
+  .admin-opportunities-toolbar,
+  .admin-reports-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-user-filters,
+  .admin-provider-filters,
+  .admin-opportunity-filters {
+    width: 100%;
+  }
+
+  .admin-user-filters input,
+  .admin-user-filters select,
+  .admin-provider-filters input,
+  .admin-provider-filters select,
+  .admin-opportunity-filters input,
+  .admin-opportunity-filters select {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .admin-overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-report-row {
+    grid-template-columns: auto 1fr;
+  }
+
+  .admin-report-actions {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav a {
+    margin-left: 7px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .hero-primary-button,
+  .hero-secondary-button {
+    text-align: center;
+  }
+
+  .dashboard-stats,
+  .provider-opportunity-summary,
+  .provider-application-summary,
+  .admin-user-summary,
+  .admin-provider-summary,
+  .admin-opportunity-summary,
+  .admin-channel-summary,
+  .admin-report-summary,
+  .provider-profile-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .profile-card,
+  .provider-profile-card,
+  .opportunity-form-card {
+    padding: 22px;
+  }
+
+  .profile-top,
+  .provider-profile-top {
+    align-items: flex-start;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .form-actions button,
+  .cancel-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .notification-card {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .notification-action {
+    margin-left: 68px;
+  }
+
+  .admin-user-row,
+  .admin-provider-row,
+  .admin-opportunity-row {
+    grid-template-columns: auto 1fr;
+  }
+
+  .admin-user-role,
+  .admin-user-status,
+  .admin-provider-status,
+  .admin-provider-actions,
+  .admin-opportunity-status,
+  .admin-opportunity-actions {
+    grid-column: 1 / -1;
+    width: fit-content;
+  }
+
+  .admin-channel-actions {
+    flex-wrap: wrap;
+  }
+}
+.search-bar input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: white;
+  color: #111827;
+  font-size: 15px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.search-bar input::placeholder {
+  color: #6b7280;
+}
+
+.search-bar input:focus {
+  border-color: #111827;
+}
+
+.channel-footer button {
+  padding: 10px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  background: white;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.channel-footer button:hover {
+  background: #f3f4f6;
+}
+
+.channel-footer .following-button {
+  background: #111827;
+  color: white;
+  border-color: #111827;
+}
