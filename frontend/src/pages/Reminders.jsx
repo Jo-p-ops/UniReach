@@ -1,6 +1,139 @@
+
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
 function Reminders() {
+  // Temporary test user until real authentication is added
+  const userId = 1;
+
+  const [reminders, setReminders] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const fetchReminders = async () => {
+      try {
+        setLoading(true);
+        setError("");
+
+        const response = await fetch(
+          `http://localhost:5000/api/reminders/${userId}`
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to load reminders.");
+        }
+
+        const data = await response.json();
+
+        setReminders(data.reminders || []);
+      } catch (err) {
+        console.error(err);
+        setError("Failed to load reminders.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchReminders();
+  }, []);
+
+  const upcomingReminders = useMemo(() => {
+    return reminders.filter((reminder) => {
+      if (!reminder.deadline) return false;
+
+      return new Date(reminder.deadline) >= new Date();
+    });
+  }, [reminders]);
+
+  const highPriorityCount = useMemo(() => {
+    return upcomingReminders.filter((reminder) => {
+      const deadline = new Date(reminder.deadline);
+      const today = new Date();
+
+      const daysLeft = Math.ceil(
+        (deadline - today) / (1000 * 60 * 60 * 24)
+      );
+
+      return daysLeft <= 14;
+    }).length;
+  }, [upcomingReminders]);
+
+  const dueThisMonthCount = useMemo(() => {
+    const today = new Date();
+
+    return upcomingReminders.filter((reminder) => {
+      const deadline = new Date(reminder.deadline);
+
+      return (
+        deadline.getMonth() === today.getMonth() &&
+        deadline.getFullYear() === today.getFullYear()
+      );
+    }).length;
+  }, [upcomingReminders]);
+
+  const getDaysLeft = (deadline) => {
+    const today = new Date();
+    const deadlineDate = new Date(deadline);
+
+    const difference = deadlineDate - today;
+
+    return Math.ceil(
+      difference / (1000 * 60 * 60 * 24)
+    );
+  };
+
+  const getPriority = (deadline) => {
+    const daysLeft = getDaysLeft(deadline);
+
+    if (daysLeft <= 7) {
+      return "High Priority";
+    }
+
+    if (daysLeft <= 21) {
+      return "Medium Priority";
+    }
+
+    return "Low Priority";
+  };
+
+  const getPriorityClass = (deadline) => {
+    const priority = getPriority(deadline);
+
+    if (priority === "High Priority") {
+      return "high-priority";
+    }
+
+    if (priority === "Medium Priority") {
+      return "medium-priority";
+    }
+
+    return "low-priority";
+  };
+
+  const formatDate = (date) => {
+    return new Date(date).toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+  };
+
+  const getDateParts = (date) => {
+    const deadline = new Date(date);
+
+    return {
+      day: deadline.toLocaleDateString("en-GB", {
+        day: "numeric",
+      }),
+      month: deadline
+        .toLocaleDateString("en-GB", {
+          month: "short",
+        })
+        .toUpperCase(),
+    };
+  };
+
   return (
     <div className="reminders-page">
       <header className="reminders-header">
@@ -17,125 +150,114 @@ function Reminders() {
 
       <section className="reminders-summary">
         <div>
-          <strong>3</strong>
+          <strong>{upcomingReminders.length}</strong>
           <span>Upcoming Deadlines</span>
         </div>
 
         <div>
-          <strong>1</strong>
+          <strong>{highPriorityCount}</strong>
           <span>High Priority</span>
         </div>
 
         <div>
-          <strong>2</strong>
+          <strong>{dueThisMonthCount}</strong>
           <span>Due This Month</span>
         </div>
       </section>
 
-      <section className="reminders-list">
-
-        <div className="reminder-card">
-          <div className="reminder-date">
-            <span>DEADLINE</span>
-            <strong>15</strong>
-            <small>OCT</small>
+      {loading && (
+        <section className="reminders-list">
+          <div className="no-results">
+            <h3>Loading reminders...</h3>
           </div>
+        </section>
+      )}
 
-          <div className="reminder-info">
-            <span className="opportunity-category">
-              High Priority
-            </span>
-
-            <h2>Software Engineering Internship</h2>
-
-            <h4>Tech Company Ghana</h4>
-
-            <p>Deadline: October 15, 2026</p>
+      {!loading && error && (
+        <section className="reminders-list">
+          <div className="no-results">
+            <h3>Unable to load reminders</h3>
+            <p>{error}</p>
           </div>
+        </section>
+      )}
 
-          <div className="reminder-actions">
-            <span className="days-left">
-              25 days left
-            </span>
+      {!loading && !error && upcomingReminders.length === 0 && (
+        <section className="reminders-list">
+          <div className="no-results">
+            <h3>No upcoming reminders</h3>
+
+            <p>
+              Save an opportunity and set a reminder for its deadline.
+            </p>
 
             <Link
-              to="/opportunities/1"
-              className="view-button"
+              to="/opportunities"
+              className="hero-primary-button"
             >
-              View
+              Explore Opportunities
             </Link>
           </div>
-        </div>
+        </section>
+      )}
 
+      {!loading && !error && upcomingReminders.length > 0 && (
+        <section className="reminders-list">
+          {upcomingReminders.map((reminder) => {
+            const dateParts = getDateParts(reminder.deadline);
+            const daysLeft = getDaysLeft(reminder.deadline);
+            const priority = getPriority(reminder.deadline);
 
-        <div className="reminder-card">
-          <div className="reminder-date">
-            <span>DEADLINE</span>
-            <strong>30</strong>
-            <small>OCT</small>
-          </div>
+            return (
+              <div
+                className="reminder-card"
+                key={reminder.id}
+              >
+                <div className="reminder-date">
+                  <span>DEADLINE</span>
 
-          <div className="reminder-info">
-            <span className="opportunity-category">
-              Medium Priority
-            </span>
+                  <strong>{dateParts.day}</strong>
 
-            <h2>Technology Scholarship</h2>
+                  <small>{dateParts.month}</small>
+                </div>
 
-            <h4>FutureTech Foundation</h4>
+                <div className="reminder-info">
+                  <span
+                    className={`opportunity-category ${getPriorityClass(
+                      reminder.deadline
+                    )}`}
+                  >
+                    {priority}
+                  </span>
 
-            <p>Deadline: October 30, 2026</p>
-          </div>
+                  <h2>{reminder.title}</h2>
 
-          <div className="reminder-actions">
-            <span className="days-left">
-              40 days left
-            </span>
+                  <h4>{reminder.organization}</h4>
 
-            <Link
-              to="/opportunities/3"
-              className="view-button"
-            >
-              View
-            </Link>
-          </div>
-        </div>
+                  <p>
+                    Deadline: {formatDate(reminder.deadline)}
+                  </p>
+                </div>
 
+                <div className="reminder-actions">
+                  <span className="days-left">
+                    {daysLeft > 0
+                      ? `${daysLeft} days left`
+                      : "Deadline today"}
+                  </span>
 
-        <div className="reminder-card">
-          <div className="reminder-date">
-            <span>DEADLINE</span>
-            <strong>5</strong>
-            <small>NOV</small>
-          </div>
-
-          <div className="reminder-info">
-            <span className="opportunity-category">
-              Low Priority
-            </span>
-
-            <h2>AI & Data Science Bootcamp</h2>
-
-            <h4>Data Community Ghana</h4>
-
-            <p>Deadline: November 5, 2026</p>
-          </div>
-
-          <div className="reminder-actions">
-            <span className="days-left">
-              46 days left
-            </span>
-
-            <Link
-              to="/opportunities/4"
-              className="view-button"
-            >
-              View
-            </Link>
-          </div>
-        </div>
-
-      </section>
+                  <Link
+                    to={`/opportunities/${reminder.opportunity_id}`}
+                    className="view-button"
+                  >
+                    View
+                  </Link>
+                </div>
+              </div>
+            );
+          })}
+        </section>
+      )}
     </div>
   );
 }

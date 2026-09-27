@@ -1,34 +1,53 @@
+
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 function OpportunityDetails() {
   const { id } = useParams();
 
+  // Temporary test user until real authentication is added
+  const userId = 1;
+
   const [opportunity, setOpportunity] = useState(null);
+  const [isSaved, setIsSaved] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
 
-  const [savedOpportunities, setSavedOpportunities] = useState(() => {
-    return JSON.parse(localStorage.getItem("savedOpportunities")) || [];
-  });
-
   useEffect(() => {
-    const fetchOpportunity = async () => {
+    const fetchData = async () => {
       try {
         setLoading(true);
         setError("");
 
-        const response = await fetch(
+        // Fetch opportunity details
+        const opportunityResponse = await fetch(
           `http://localhost:5000/api/opportunities/${id}`
         );
 
-        if (!response.ok) {
+        if (!opportunityResponse.ok) {
           throw new Error("Opportunity not found.");
         }
 
-        const data = await response.json();
+        const opportunityData = await opportunityResponse.json();
 
-        setOpportunity(data);
+        // Backend returns { success: true, opportunity: {...} }
+        setOpportunity(opportunityData.opportunity);
+
+        // Fetch user's saved opportunities
+        const savedResponse = await fetch(
+          `http://localhost:5000/api/saved-opportunities/${userId}`
+        );
+
+        if (savedResponse.ok) {
+          const savedData = await savedResponse.json();
+
+          const saved = savedData.opportunities?.some(
+            (item) => item.id === Number(id)
+          );
+
+          setIsSaved(saved || false);
+        }
       } catch (err) {
         console.error(err);
         setError("Failed to load opportunity details.");
@@ -37,8 +56,54 @@ function OpportunityDetails() {
       }
     };
 
-    fetchOpportunity();
+    fetchData();
   }, [id]);
+
+  const toggleSave = async () => {
+    try {
+      setSaving(true);
+
+      if (isSaved) {
+        const response = await fetch(
+          `http://localhost:5000/api/saved-opportunities/${userId}/${id}`,
+          {
+            method: "DELETE",
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to remove saved opportunity.");
+        }
+
+        setIsSaved(false);
+      } else {
+        const response = await fetch(
+          "http://localhost:5000/api/saved-opportunities",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              user_id: userId,
+              opportunity_id: Number(id),
+            }),
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to save opportunity.");
+        }
+
+        setIsSaved(true);
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setSaving(false);
+    }
+  };
 
   if (loading) {
     return (
@@ -63,29 +128,6 @@ function OpportunityDetails() {
       </div>
     );
   }
-
-  const isSaved = savedOpportunities.some(
-    (item) => item.id === opportunity.id
-  );
-
-  const toggleSave = () => {
-    let updatedSaved;
-
-    if (isSaved) {
-      updatedSaved = savedOpportunities.filter(
-        (item) => item.id !== opportunity.id
-      );
-    } else {
-      updatedSaved = [...savedOpportunities, opportunity];
-    }
-
-    setSavedOpportunities(updatedSaved);
-
-    localStorage.setItem(
-      "savedOpportunities",
-      JSON.stringify(updatedSaved)
-    );
-  };
 
   const formattedDeadline = opportunity.deadline
     ? new Date(opportunity.deadline).toLocaleDateString("en-GB", {
@@ -138,8 +180,9 @@ function OpportunityDetails() {
           <button
             onClick={toggleSave}
             className={isSaved ? "saved-button" : ""}
+            disabled={saving}
           >
-            {isSaved ? "Saved ✓" : "Save"}
+            {saving ? "..." : isSaved ? "Saved ✓" : "Save"}
           </button>
 
           {opportunity.application_url ? (
