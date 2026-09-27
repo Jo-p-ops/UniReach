@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
@@ -10,8 +9,16 @@ function OpportunityDetails() {
 
   const [opportunity, setOpportunity] = useState(null);
   const [isSaved, setIsSaved] = useState(false);
+
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+
+  const [showReminder, setShowReminder] = useState(false);
+  const [reminderDate, setReminderDate] = useState("");
+  const [reminderLoading, setReminderLoading] = useState(false);
+  const [reminderMessage, setReminderMessage] = useState("");
+  const [reminderError, setReminderError] = useState("");
+
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -20,7 +27,6 @@ function OpportunityDetails() {
         setLoading(true);
         setError("");
 
-        // Fetch opportunity details
         const opportunityResponse = await fetch(
           `http://localhost:5000/api/opportunities/${id}`
         );
@@ -31,10 +37,8 @@ function OpportunityDetails() {
 
         const opportunityData = await opportunityResponse.json();
 
-        // Backend returns { success: true, opportunity: {...} }
         setOpportunity(opportunityData.opportunity);
 
-        // Fetch user's saved opportunities
         const savedResponse = await fetch(
           `http://localhost:5000/api/saved-opportunities/${userId}`
         );
@@ -102,6 +106,70 @@ function OpportunityDetails() {
       alert("Something went wrong. Please try again.");
     } finally {
       setSaving(false);
+    }
+  };
+
+  const handleSetReminder = async () => {
+    try {
+      setReminderLoading(true);
+      setReminderMessage("");
+      setReminderError("");
+
+      if (!reminderDate) {
+        setReminderError("Please select a reminder date and time.");
+        return;
+      }
+
+      const selectedDate = new Date(reminderDate);
+
+      if (Number.isNaN(selectedDate.getTime())) {
+        setReminderError("Please select a valid date and time.");
+        return;
+      }
+
+      if (
+        opportunity.deadline &&
+        selectedDate >= new Date(opportunity.deadline)
+      ) {
+        setReminderError(
+          "Reminder must be set before the opportunity deadline."
+        );
+        return;
+      }
+
+      const response = await fetch(
+        "http://localhost:5000/api/reminders",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            user_id: userId,
+            opportunity_id: Number(id),
+            remind_at: selectedDate.toISOString(),
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          data.message || "Failed to create reminder."
+        );
+      }
+
+      setReminderMessage("Reminder set successfully.");
+      setReminderDate("");
+      setShowReminder(false);
+    } catch (err) {
+      console.error(err);
+      setReminderError(
+        err.message || "Failed to set reminder."
+      );
+    } finally {
+      setReminderLoading(false);
     }
   };
 
@@ -176,6 +244,58 @@ function OpportunityDetails() {
           <p>{opportunity.description}</p>
         </div>
 
+        {reminderMessage && (
+          <p className="success-message">
+            ✓ {reminderMessage}
+          </p>
+        )}
+
+        {showReminder && (
+          <div className="reminder-form">
+            <h3>Set a Reminder</h3>
+
+            <p>
+              Choose when you want UniReach to remind you about
+              this opportunity.
+            </p>
+
+            <input
+              type="datetime-local"
+              value={reminderDate}
+              onChange={(e) => setReminderDate(e.target.value)}
+            />
+
+            {reminderError && (
+              <p className="error-message">
+                {reminderError}
+              </p>
+            )}
+
+            <div className="feed-actions">
+              <button
+                onClick={handleSetReminder}
+                className="view-button"
+                disabled={reminderLoading}
+              >
+                {reminderLoading
+                  ? "Setting..."
+                  : "Set Reminder"}
+              </button>
+
+              <button
+                onClick={() => {
+                  setShowReminder(false);
+                  setReminderError("");
+                }}
+                className="saved-button"
+                disabled={reminderLoading}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        )}
+
         <div className="feed-actions">
           <button
             onClick={toggleSave}
@@ -184,6 +304,19 @@ function OpportunityDetails() {
           >
             {saving ? "..." : isSaved ? "Saved ✓" : "Save"}
           </button>
+
+          {!showReminder && (
+            <button
+              onClick={() => {
+                setShowReminder(true);
+                setReminderMessage("");
+                setReminderError("");
+              }}
+              className="view-button"
+            >
+              ⏰ Remind Me
+            </button>
+          )}
 
           {opportunity.application_url ? (
             <a
@@ -195,7 +328,10 @@ function OpportunityDetails() {
               Apply Now
             </a>
           ) : (
-            <button className="view-button apply-button" disabled>
+            <button
+              className="view-button apply-button"
+              disabled
+            >
               Application Link Unavailable
             </button>
           )}

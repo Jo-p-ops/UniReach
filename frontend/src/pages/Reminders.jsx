@@ -1,4 +1,3 @@
-
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -9,6 +8,7 @@ function Reminders() {
   const [reminders, setReminders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [deletingId, setDeletingId] = useState(null);
 
   useEffect(() => {
     const fetchReminders = async () => {
@@ -37,6 +37,46 @@ function Reminders() {
 
     fetchReminders();
   }, []);
+
+  const handleDeleteReminder = async (reminderId) => {
+    const confirmed = window.confirm(
+      "Are you sure you want to cancel this reminder?"
+    );
+
+    if (!confirmed) {
+      return;
+    }
+
+    try {
+      setDeletingId(reminderId);
+
+      const response = await fetch(
+        `http://localhost:5000/api/reminders/${reminderId}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          data.message || "Failed to cancel reminder."
+        );
+      }
+
+      setReminders((currentReminders) =>
+        currentReminders.filter(
+          (reminder) => reminder.id !== reminderId
+        )
+      );
+    } catch (err) {
+      console.error(err);
+      alert(err.message || "Failed to cancel reminder.");
+    } finally {
+      setDeletingId(null);
+    }
+  };
 
   const upcomingReminders = useMemo(() => {
     return reminders.filter((reminder) => {
@@ -252,6 +292,18 @@ function Reminders() {
                   >
                     View
                   </Link>
+
+                  <button
+                    onClick={() =>
+                      handleDeleteReminder(reminder.id)
+                    }
+                    className="cancel-button"
+                    disabled={deletingId === reminder.id}
+                  >
+                    {deletingId === reminder.id
+                      ? "Cancelling..."
+                      : "Cancel"}
+                  </button>
                 </div>
               </div>
             );
